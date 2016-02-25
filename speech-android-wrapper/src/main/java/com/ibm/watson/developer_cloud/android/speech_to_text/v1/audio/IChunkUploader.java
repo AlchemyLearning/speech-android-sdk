@@ -48,7 +48,7 @@ public interface IChunkUploader {
     /**
      * Start thread to construct an upload http connection to back end server.
      */
-    void prepare();
+    void prepare() throws Exception;
 
     /**
      * Set Delegate

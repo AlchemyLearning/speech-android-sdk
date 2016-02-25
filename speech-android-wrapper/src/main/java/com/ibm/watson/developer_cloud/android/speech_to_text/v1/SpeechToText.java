@@ -57,7 +57,7 @@ public class SpeechToText {
 
     protected static final String TAG = "SpeechToText";
     //private String transcript;
-    private Context appCtx;
+//    private Context appCtx;
     private SpeechConfiguration sConfig;
     private AudioCaptureThread audioCaptureThread = null;
     private IChunkUploader uploader = null;
@@ -99,7 +99,7 @@ public class SpeechToText {
      */
     public void initWithContext(URI uri, Context ctx, SpeechConfiguration sc){
         this.setHostURL(uri);
-        this.appCtx = ctx;
+        // this.appCtx = ctx;
         this.sConfig = sc;
     }
 
@@ -128,8 +128,15 @@ public class SpeechToText {
     /**
      * Start recording
      */
-    private void startRecording() {
-        uploader.prepare();
+    private void startRecording() throws Exception{
+
+        try {
+            uploader.prepare();
+        }
+        catch (Exception e) {
+            throw e;
+        }
+
         STTIAudioConsumer audioConsumer = new STTIAudioConsumer(uploader);
 
         audioCaptureThread = new AudioCaptureThread(SpeechConfiguration.SAMPLE_RATE, audioConsumer);
@@ -164,6 +171,9 @@ public class SpeechToText {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
+        catch (Exception e) {
+
+        }
     }
 
     /**
@@ -182,6 +192,12 @@ public class SpeechToText {
         if(uploader != null) {
             uploader.stop();
             uploader.close();
+        }
+    }
+
+    public void stopRecognitionOnly() {
+        if(uploader != null) {
+            uploader.stop();
         }
     }
 

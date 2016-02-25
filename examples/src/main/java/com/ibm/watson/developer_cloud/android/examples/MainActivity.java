@@ -176,8 +176,8 @@ public class MainActivity extends Activity {
         private boolean initSTT() {
 
             // DISCLAIMER: please enter your credentials or token factory in the lines below
-            String username = getString(R.string.defaultUsername);
-            String password = getString(R.string.defaultPassword);
+            String username = "f729fc32-7935-46c7-b7e7-fad90abfb7ff";//getString(R.string.defaultUsername);
+            String password = "t0MGLeDHLJtw";//getString(R.string.defaultPassword);
 
             String tokenFactoryURL = getString(R.string.defaultTokenFactory);
             String serviceURL = "wss://stream.watsonplatform.net/speech-to-text/api";
@@ -188,16 +188,16 @@ public class MainActivity extends Activity {
             SpeechToText.sharedInstance().initWithContext(this.getHost(serviceURL), getActivity().getApplicationContext(), sConfig);
 
             // token factory is the preferred authentication method (service credentials are not distributed in the client app)
-            if (tokenFactoryURL.equals(getString(R.string.defaultTokenFactory)) == false) {
-                SpeechToText.sharedInstance().setTokenProvider(new MyTokenProvider(tokenFactoryURL));
-            }
-            // Basic Authentication
-            else if (username.equals(getString(R.string.defaultUsername)) == false) {
+            // if (tokenFactoryURL.equals(getString(R.string.defaultTokenFactory)) == false) {
+            //     SpeechToText.sharedInstance().setTokenProvider(new MyTokenProvider(tokenFactoryURL));
+            // }
+            // // Basic Authentication
+            // else if (username.equals(getString(R.string.defaultUsername)) == false) {
                 SpeechToText.sharedInstance().setCredentials(username, password);
-            } else {
-                // no authentication method available
-                return false;
-            }
+            // } else {
+            //     // no authentication method available
+            //     return false;
+            // }
 
             SpeechToText.sharedInstance().setModel(getString(R.string.modelDefault));
             SpeechToText.sharedInstance().setDelegate(this);

@@ -15,10 +15,16 @@ android {
     }
     productFlavors {
     }
+
+      lintOptions {
+          abortOnError false
+      }
 }
 
 dependencies {
     compile files('libs/java_websocket.jar')
     compile files('libs/commons-io-2.4.jar')
+    provided files('libs/unity-classes.jar')
     compile files('libs/jna.jar')
+    testCompile 'junit:junit:4.11'
 }
