@@ -12,6 +12,8 @@ Table of Contents
 
     * [Installation](#installation)
 
+    * [Getting Credentials](#getting-credentials)
+
     * [Speech To Text](#speech-to-text)
         * [Implement the delegates](#implement-the-speechdelegate-and-speechrecorderdelegate-in-the-mainactivity)
     	* [Instantiate the SpeechToText instance](#instantiate-the-speechtotext-instance)
@@ -26,12 +28,13 @@ Table of Contents
     	* [List supported voices](#get-a-list-of-voices-supported-by-the-service)
     	* [Generate and play audio](#generate-and-play-audio)
 
+
 Installation
 ------------
 
 **Using the library**
 
-1. Download the [watsonsdk.aar.zip](https://github.com/watson-developer-cloud/speech-android-sdk/releases/download/watsonsdk.aar.zip/watsonsdk.aar.zip) and unzip it somewhere convenient
+1. Download the [speech-android-wrapper.aar](https://github.com/watson-developer-cloud/speech-android-sdk/releases/download/watsonsdk.aar/speech-android-wrapper.aar)
 2. Once unzipped drag the watsonsdk.aar file into your Android Studio project view under the libs folder.
 3. Go to build.gradle file of your app, then set the dependencies as below:
 ```
@@ -47,6 +50,13 @@ Installation
     }
 ```
 4. Clean and run the Android Studio project
+
+
+Getting credentials
+--------------------
+
+Follow instructions at http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/gs-credentials.shtml to get service credentials.
+
 
 Speech To Text
 ===============
